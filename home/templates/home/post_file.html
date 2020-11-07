@@ -1,0 +1,14 @@
+{% extends 'home/basic.html' %} 
+{% load crispy_forms_tags %}
+{% block main %}
+    <br>
+    <br>
+    <div class="container">
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form|crispy }} 
+         <br>
+        <button type="submit" class="btn btn-primary">Predict</button>
+    </form>
+    </div> 
+{% endblock main %}

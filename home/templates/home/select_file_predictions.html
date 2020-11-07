@@ -1,0 +1,25 @@
+{% extends './basic.html' %}
+
+{% block main %}
+<br>
+<br>
+<br>
+<form action="/predict/" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form_as_p }}
+        <h5>Please select one file at a time from the list of server files below.</h5>
+        <h5>Clicking on the filename you can listen to the audio file.</h5>
+        {% for myfile in filename %}
+            <label>
+                <a href="/media/{{ myfile }}">{{ myfile }}</a>
+            </label>
+            <div class="text-right">
+             <a href="{% url 'predict' myfile %}" class="btn btn-primary">Predict</a>
+             <a href="{% url 'deletefile' myfile %}" class="btn btn-danger">Delete</a>
+             </div>
+             <br>
+        {% endfor %}
+       
+    </form>
+
+{% endblock main %}

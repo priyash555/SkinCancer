@@ -1,0 +1,23 @@
+
+{% extends 'home/basic.html' %}
+
+{% load static %}
+{% load crispy_forms_tags %}
+{% block main %}
+    <br>
+    <br>
+    <link href="{% static 'users/profile.css' %}" rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <div>
+        <div class="fb-profile">
+            <img align="left" class="fb-image-lg" src="http://lorempixel.com/850/280/nightlife/5/" alt="Profile image example"/>
+            <img align="left" class="fb-image-profile thumbnail" src="{{ user.profile.image.url }}"/>
+            <div class="fb-profile-text">
+                <h1>{{ user.username }}</h1>
+                <p>{{ user.email }}</p>
+            </div>
+        </div>
+        <a type="button" class="btn btn-primary" href={% url 'users-update' %}>Update</a>
+    </div> <!-- /container -->  
+{% endblock main %}
+    

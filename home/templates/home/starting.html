@@ -1,0 +1,39 @@
+{% extends './basic.html' %}
+
+{% block main %}
+<br>
+<br>
+<br>
+   <!-- Card -->
+        <div class="jumbotron text-center" class="container" style="background-color:#6694de;color:white;">
+            <h2>Skin Cancer Prediction using Deep Learning</h2>
+        </div>
+        <div class="container" id="Container1">
+          <div class="row">
+            <div class="col-sm-6 text-center" id="FileUpload">
+              <a href="{% url 'upload_file' %}" class="btn btn-primary">Upload your Image file</a>
+            </div>
+            <div class="col-sm-6 text-center" id="makePredictions">
+              <a href="{% url 'file_select' %}" class="btn btn-primary">Predict from existing Files</a>
+            </div>
+          </div>
+        </div>
+         {% comment %} <div class="jumbotron text-center" id="myJumbotron2" style="background-color:white">
+             <div class="container" id="Container2">
+               <div class="row">
+                  <div class="col-sm-12 text-center" id="PredictionsOutput">
+                  {% for pred in predictions %}
+                    <h4>The emotion of the speaker in your file is: <strong>{{ pred }}</strong> </h4>
+                  {% endfor %}
+                  </div>
+               </div>
+             </div>
+         </div> {% endcomment %}
+         {% comment %} <div class="container">
+             <div class="center">
+              {% block content %}
+              {% endblock %}
+             </div>
+         </div> {% endcomment %}
+
+{% endblock main %}
