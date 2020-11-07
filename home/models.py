@@ -18,6 +18,12 @@ class FileModel(models.Model):
         unique_together = ['file', 'path']
 
 
+class SkinCancer(models.Model):
+    idskin = models.IntegerField()
+    name = models.CharField(max_length=100)
+    description = models.CharField(max_length=2000)
+
+
 @receiver(post_delete, sender=FileModel)
 def submission_delete(sender, instance, **kwargs):
     """

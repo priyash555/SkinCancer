@@ -28,7 +28,7 @@ from rest_framework.parsers import MultiPartParser
 from rest_framework.response import Response
 from rest_framework.renderers import TemplateHTMLRenderer
 
-from home.models import FileModel
+from home.models import FileModel, SkinCancer
 from home.serialize import FileSerializer
 
 import tensorflow
@@ -158,10 +158,11 @@ def predictfile(request, myfile):
         mmodel.load_weights(os.path.join(settings.MODEL_ROOT, model_name))
         arr = mmodel.predict(x)
         type = np.argmax(arr, axis=1)[0]
-
+        type2 = SkinCancer.objects.get(idskin=type)
     return render(request, 'home/prediction.html', {
         'result1': res1,
-        'type': type
+        'type': type2,
+        'img': myfile
     })
 
 
