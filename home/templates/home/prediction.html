@@ -8,7 +8,7 @@
    <!-- Card -->
     <a href="/media/{{ myfile }}">{{ myfile }}</a><br><br>
     {% if result1 == 0 %}
-    Your lesion is benign. No need to worry.
+    <h3>Your lesion is benign. No need to worry.</h3>
     {% endif %}
     {% if result1 == 1 %}
     <h3>Your lesion is malign with the probability that the cancer type is {{type.name}}</h3><br><br>
