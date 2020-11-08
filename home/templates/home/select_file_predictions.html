@@ -7,8 +7,8 @@
 <form action="/predict/" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form_as_p }}
-        <h5>Please select one file at a time from the list of server files below.</h5>
-        <h5>Clicking on the filename you can listen to the audio file.</h5>
+        <h5>Please select one file from the list of server files below.</h5>
+        <h5>Clicking on the filename you can view the image.</h5>
         {% for myfile in filename %}
             <label>
                 <a href="/media/{{ myfile }}">{{ myfile }}</a>
