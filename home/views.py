@@ -158,10 +158,16 @@ def predictfile(request, myfile):
         mmodel.load_weights(os.path.join(settings.MODEL_ROOT, model_name))
         arr = mmodel.predict(x)
         type = np.argmax(arr, axis=1)[0]
+        print(type)
+        type = type + 1
         type2 = SkinCancer.objects.get(idskin=type)
+        return render(request, 'home/prediction.html', {
+            'result1': res1,
+            'type': type2,
+            'img': myfile
+        })
     return render(request, 'home/prediction.html', {
         'result1': res1,
-        'type': type2,
         'img': myfile
     })
 
