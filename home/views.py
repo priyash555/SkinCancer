@@ -161,6 +161,8 @@ def predictfile(request, myfile):
         print(type)
         type = type + 1
         type2 = SkinCancer.objects.get(idskin=type)
+        if type == 3:
+            res1 = 0
         return render(request, 'home/prediction.html', {
             'result1': res1,
             'type': type2,
